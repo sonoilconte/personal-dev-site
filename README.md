@@ -4,6 +4,6 @@ In this repo, I'll be developing the project for my personal portfolio website. 
 
 ### Technologies used in this personal website
 
-*html
-*CSS
-*maybe a little javascript?
++ html
++ CSS
++ maybe a little javascript?
