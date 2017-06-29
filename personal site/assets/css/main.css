@@ -1,0 +1,19 @@
+/* custom styles */
+
+body{
+  font-family: Ariel, sans-serif;
+  background: #c9dbf2;
+
+
+}
+
+header {
+  text-align: center;
+}
+
+section {
+  border: 5px dotted black;
+  border-radius: 20px;
+  margin: 40px 80px;
+  text-align: center;
+}
