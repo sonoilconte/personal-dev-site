@@ -1,12 +1,3 @@
-//fades in and out the wrapping div as you switch sections
-
-// function fadeHide(){
-// $('#wrapper').fadeOut(1000);
-// $('#work').hide();
-// $('#about').hide();
-// $('#contact').hide();
-// }
-
 $(document).ready(function(){
 
 	console.log("fade js working");
@@ -24,31 +15,22 @@ $(document).ready(function(){
 console.log(work, about, contact);
 
 	$('#nav-work').on('click', function(){
-
-			$('#wrapper').fadeOut(1000, function(){
-				$('#wrapper').html(work).fadeIn(1000);
-				}
-			);
-		}
-	);
+		$('#wrapper').fadeOut(1000, function(){
+			$('#wrapper').html(work).fadeIn(1000);
+		});
+	});
 
 	$('#nav-about').on('click', function(){
-		
-			$('#wrapper').fadeOut(1000, function(){
-					$('#wrapper').html(about).fadeIn(1000);
-					}
-			);
-		}
-	);
+		$('#wrapper').fadeOut(1000, function(){
+			$('#wrapper').html(about).fadeIn(1000);
+		});
+	});
 
 	$('#nav-contact').on('click', function(){
-			
-			$('#wrapper').fadeOut(1000, function(){
-				$('#wrapper').html(contact).fadeIn(1000);
-				}
-			);
-		}
-	);
+		$('#wrapper').fadeOut(1000, function(){
+			$('#wrapper').html(contact).fadeIn(1000);
+		});
+	});
 
 });
 
