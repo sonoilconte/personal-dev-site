@@ -1,41 +1,33 @@
+// TODO: Current section should be highlighted
+
 $(document).ready(function(){
 
-	console.log("fade js working");
-
-//start with only work section showing 
+//start with only work section showing
 
 	$('#about').hide();
 	$('#contact').hide();
 
 //get the section tags from the DOM
-	var work = $('#work').html();
-	var about = $('#about').html();
-	var contact = $('#contact').html();
+	let work = $('#work').html();
+	let about = $('#about').html();
+	let contact = $('#contact').html();
 
-console.log(work, about, contact);
-
-	$('#nav-work').on('click', function(){
-		$('#wrapper').fadeOut(1000, function(){
-			$('#wrapper').html(work).fadeIn(1000);
+	$('#nav-work').on('click', () => {
+		$('#wrapper').fadeOut(500, () => {
+			$('#wrapper').html(work).fadeIn(500);
 		});
 	});
 
-	$('#nav-about').on('click', function(){
-		$('#wrapper').fadeOut(1000, function(){
-			$('#wrapper').html(about).fadeIn(1000);
+	$('#nav-about').on('click', () => {
+		$('#wrapper').fadeOut(500, () => {
+			$('#wrapper').html(about).fadeIn(500);
 		});
 	});
 
-	$('#nav-contact').on('click', function(){
-		$('#wrapper').fadeOut(1000, function(){
-			$('#wrapper').html(contact).fadeIn(1000);
+	$('#nav-contact').on('click', () => {
+		$('#wrapper').fadeOut(500, () => {
+			$('#wrapper').html(contact).fadeIn(500);
 		});
 	});
 
 });
-
-
-
-
-
-
