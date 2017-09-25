@@ -13,27 +13,28 @@ header {
 
 header, nav ul li, #wrapper {
 	border: 5px dashed #c9dbf2;
-    border-radius: 20px;
+  border-radius: 20px;
 	background: white;
- }
+}
 
 h1, h2 {
  	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 }
- li, p {
+
+li, p {
  	font-family: 'Poppins', sans-serif;
- }
+}
 
- nav {
- 	margin: 40px auto;
-	max-width: 400px;
- }
+nav {
+	margin: 40px auto;
+  max-width: 400px;
+}
 
- nav ul {
-	list-style: none;
-	text-align: center;
-	padding: 0;
+nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
 }
 
 .nav-btn {
@@ -48,13 +49,12 @@ h1, h2 {
 	background: #73b6f5;
 }
 
-#wrapper {  
+#wrapper {
 	margin: 40px auto;
-  	text-align: left;
-  	padding: 30px;
-  	max-width: 600px;
-  	/*height: 600px;*/
-
+	text-align: left;
+	padding: 30px;
+	max-width: 600px;
+	/*height: 600px;*/
 }
 
 #wrapper h2 {
@@ -73,4 +73,3 @@ a {
 #about, #contact {
 	display: none;
 }
-
