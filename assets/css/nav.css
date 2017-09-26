@@ -1,6 +1,4 @@
 #mobile-nav {
-  list-style: none;
-  background-color: #111;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -9,11 +7,17 @@
   bottom: 0;
   left: 0;
   z-index: 0;
+
+  list-style: none;
+  background-color: grey;
+}
+
+.mobile-nav-item {
+  width: 200px;
 }
 
 #site-wrapper {
-  /*font-family: sans-serif;*/
-  background: #c9dbf2;
+  background-color: #c9dbf2;
   min-width: 100%;
   min-height: 100%;
   position: relative;
@@ -36,5 +40,21 @@ label[for="hamburger"]{
   width: 30px;
   height: 30px;
   cursor: pointer;
+  background-size: contain;
+}
 
+#hamburger:checked + label {
+  left: 215px;
+}
+
+#hamburger:checked ~ #site-wrapper {
+  left: 200px;
+}
+
+#hamburger + label, #site-wrapper {
+  transition: left 0.2s;
+}
+
+body {
+  overflow-x: hidden;
 }
