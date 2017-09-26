@@ -12,21 +12,21 @@ $(document).ready(function(){
 	let about = $('#about').html();
 	let contact = $('#contact').html();
 
-	$('#nav-work').on('click', (e) => {
+	$('.nav-work').on('click', (e) => {
 		e.preventDefault();
 		$('#wrapper').fadeOut(500, () => {
 			$('#wrapper').html(work).fadeIn(500);
 		});
 	});
 
-	$('#nav-about').on('click', (e) => {
+	$('.nav-about').on('click', (e) => {
 		e.preventDefault();
 		$('#wrapper').fadeOut(500, () => {
 			$('#wrapper').html(about).fadeIn(500);
 		});
 	});
 
-	$('#nav-contact').on('click', (e) => {
+	$('.nav-contact').on('click', (e) => {
 		e.preventDefault();
 		$('#wrapper').fadeOut(500, () => {
 			$('#wrapper').html(contact).fadeIn(500);
