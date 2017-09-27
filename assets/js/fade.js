@@ -33,4 +33,16 @@ $(document).ready(function(){
 		});
 	});
 
+	// Watch for scroll for fixed nav bar
+
+	$(window).scroll(() => {
+		console.log($(window).scrollTop());
+		if ($(window).scrollTop() > 302){
+			$('nav').addClass('fixed-nav');
+		}
+		if ($(window).scrollTop() < 302){
+			$('nav').removeClass('fixed-nav');
+		}
+	});
+
 });

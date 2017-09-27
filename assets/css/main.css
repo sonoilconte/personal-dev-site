@@ -1,14 +1,18 @@
-/* custom styles */
+body {
+  overflow-x: hidden;
+  background-color: #c9dbf2;
+  height: 100%;
+}
 
 header {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 	max-width: 600px;
+  height: 270px;
 	text-align: center;
 }
 
 header, nav ul li, #wrapper {
-	border: 5px dashed #c9dbf2;
+	/*border: 5px dashed #c9dbf2;*/
   border-radius: 20px;
 	background: white;
 }
@@ -23,13 +27,15 @@ li, p {
 }
 
 nav {
-	margin: 40px auto;
+	margin: 0 auto;
+  padding: 20px 0;
 }
 
 nav ul {
   list-style: none;
   text-align: center;
   padding: 0;
+  margin: 0;
 }
 
 .nav-btn {
@@ -44,12 +50,21 @@ nav ul {
 	background: #73b6f5;
 }
 
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  margin: 0 auto;
+  background: #c9dbf2;
+}
+
 #wrapper {
-	margin: 40px auto;
+  position: relative;
+	margin: 0 auto;
 	text-align: left;
-	padding: 30px;
+	padding: 30px 10px;
 	max-width: 600px;
-	/*height: 600px;*/
 }
 
 #wrapper h2 {
@@ -57,7 +72,6 @@ nav ul {
 }
 
 #wrapper p {
-	/*margin-left: 20px;*/
 	color: black;
 }
 
