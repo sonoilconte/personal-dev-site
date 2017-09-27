@@ -12,22 +12,34 @@ $(document).ready(function(){
 	let about = $('#about').html();
 	let contact = $('#contact').html();
 
-	$('.nav-work').on('click', (e) => {
+	$('#nav-work').on('click', (e) => {
 		e.preventDefault();
+		$('#nav-work').addClass('current-btn');
+		$('#nav-about').removeClass('current-btn');
+		$('#nav-contact').removeClass('current-btn');
+
 		$('#wrapper').fadeOut(500, () => {
 			$('#wrapper').html(work).fadeIn(500);
 		});
 	});
 
-	$('.nav-about').on('click', (e) => {
+	$('#nav-about').on('click', (e) => {
 		e.preventDefault();
+		$('#nav-about').addClass('current-btn');
+		$('#nav-work').removeClass('current-btn');
+		$('#nav-contact').removeClass('current-btn');
+
 		$('#wrapper').fadeOut(500, () => {
 			$('#wrapper').html(about).fadeIn(500);
 		});
 	});
 
-	$('.nav-contact').on('click', (e) => {
+	$('#nav-contact').on('click', (e) => {
 		e.preventDefault();
+		$('#nav-contact').addClass('current-btn');
+		$('#nav-work').removeClass('current-btn');
+		$('#nav-about').removeClass('current-btn');
+
 		$('#wrapper').fadeOut(500, () => {
 			$('#wrapper').html(contact).fadeIn(500);
 		});
