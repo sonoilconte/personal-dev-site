@@ -1,3 +1,17 @@
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  margin: 0 auto;
+  background: #c9dbf2;
+}
+
+
+
+
+
+
 /* TODO: add a little js for when you click back into the body of the page, it "unchecks" the hamburger input*/
 
 #mobile-nav {
