@@ -49,11 +49,13 @@ $(document).ready(function(){
 
 	$(window).scroll(() => {
 		console.log($(window).scrollTop());
-		if ($(window).scrollTop() > 302){
+		if ($(window).scrollTop() > 300){
 			$('nav').addClass('fixed-nav');
+			$('#wrapper').css('margin-top', '80px');
 		}
-		if ($(window).scrollTop() < 302){
+		if ($(window).scrollTop() < 300){
 			$('nav').removeClass('fixed-nav');
+			$('#wrapper').css('margin-top', '0');
 		}
 	});
 
