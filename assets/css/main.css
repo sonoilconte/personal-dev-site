@@ -2,6 +2,7 @@ body {
   overflow-x: hidden;
   background-color: #c9dbf2;
   height: 100%;
+  padding: 10px;
 }
 
 header {
@@ -86,7 +87,7 @@ nav ul {
   position: relative;
 	margin: 0 auto;
 	text-align: left;
-	padding: 10px;
+	padding: 20px;
 	max-width: 600px;
 }
 
@@ -116,4 +117,11 @@ a::after {
   margin: 10px;
   float: left;
 
+}
+
+.screenshot {
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  margin: 10px;
 }
