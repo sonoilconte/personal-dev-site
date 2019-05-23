@@ -43,6 +43,16 @@ nav {
   padding: 20px 0;
 }
 
+.fixed-nav {
+  position: fixed;
+  width: 75%;
+  top: 0;
+  left: 50%;
+  margin-left: -37.5%;
+  z-index: 10;
+  background: #c9dbf2;
+}
+
 nav ul {
   list-style: none;
   text-align: center;
@@ -70,15 +80,6 @@ nav ul {
 	background: #73b6f5;
 }
 
-.fixed-nav {
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  margin: 0 auto;
-  background: #c9dbf2;
-}
-
 .bump-down {
   margin-top: 80px;
 }
@@ -102,12 +103,17 @@ nav ul {
 a {
 	color: #162955;
 }
+
 a::after {
   color: #162955;
 }
 
-#about, #contact {
-	display: none;
+.default-no-display {
+  display: none;
+}
+
+.display {
+  display: block;
 }
 
 .photo {
