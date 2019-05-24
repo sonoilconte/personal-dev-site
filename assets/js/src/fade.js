@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 	// Watch for scroll for fixed nav bar
 	$(window).scroll(() => {
-		if ($(window).scrollTop() > 320){
+		if ($(window).scrollTop() > 320) {
 			$('nav').addClass('fixed-nav');
 			$('#wrapper').css('margin-top', '80px');
 		} else {

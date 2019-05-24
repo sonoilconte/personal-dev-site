@@ -1,0 +1,25 @@
+{
+  "name": "personal-dev-site",
+  "version": "1.0.0",
+  "description": "In this repo, I'll be developing the project for my personal portfolio website. This site will likely get more elaborate as the course progresses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonoilconte/personal-dev-site.git"
+  },
+  "author": "Sepp Hammer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonoilconte/personal-dev-site/issues"
+  },
+  "homepage": "https://github.com/sonoilconte/personal-dev-site#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0"
+  }
+}
