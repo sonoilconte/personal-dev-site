@@ -8,10 +8,3 @@ gulp.task('default', () =>
     }))
     .pipe(gulp.dest('assets/js/dist'))
 );
-//
-// function defaultTask(cb) {
-//   // place code for your default task here
-//   cb();
-// }
-//
-// exports.default = defaultTask

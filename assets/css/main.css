@@ -77,7 +77,7 @@ nav ul {
 	background: #73b6f5;
 }
 
-#wrapper {
+.wrapper {
   position: relative;
 	margin: 0 auto;
 	text-align: left;
@@ -93,6 +93,11 @@ nav ul {
 #wrapper p {
 	color: black;
 }
+
+.wrapper-nav-offset {
+  margin: 87px auto 0 auto;
+}
+
 
 a, a::after {
 	color: #162955;
