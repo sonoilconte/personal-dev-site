@@ -1,27 +1,24 @@
 body {
-  overflow-x: hidden;
   background-color: #c9dbf2;
-  height: 100%;
   padding: 10px;
 }
 
 header {
   margin: 0 auto;
 	max-width: 600px;
-  height: 270px;
+  height: 240px;
 	text-align: center;
-  padding-top: 20px;
+  padding: 10px;
 }
 
 header, nav ul li, #wrapper {
-	/*border: 5px dashed #c9dbf2;*/
   border-radius: 20px;
 	background: white;
 }
 
-header, #wrapper {
-  margin-top: 20px;
-}
+/*header {
+  margin-top: 10px;
+}*/
 
 
 h1, h2 {
@@ -45,10 +42,10 @@ nav {
 
 .fixed-nav {
   position: fixed;
-  width: 75%;
+  width: 100%;
   top: 0;
   left: 50%;
-  margin-left: -37.5%;
+  margin-left: -50%;
   z-index: 10;
   background: #c9dbf2;
 }
@@ -80,16 +77,13 @@ nav ul {
 	background: #73b6f5;
 }
 
-.bump-down {
-  margin-top: 80px;
-}
-
 #wrapper {
   position: relative;
 	margin: 0 auto;
 	text-align: left;
 	padding: 20px;
 	max-width: 600px;
+  min-height: 800px;
 }
 
 #wrapper h2 {
@@ -100,12 +94,8 @@ nav ul {
 	color: black;
 }
 
-a {
+a, a::after {
 	color: #162955;
-}
-
-a::after {
-  color: #162955;
 }
 
 .default-no-display {
@@ -122,7 +112,6 @@ a::after {
   border-radius: 20px;
   margin: 10px;
   float: left;
-
 }
 
 .screenshot {
