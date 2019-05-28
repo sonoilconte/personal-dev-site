@@ -1,7 +1,7 @@
 {
   "name": "personal-dev-site",
   "version": "1.0.0",
-  "description": "In this repo, I'll be developing the project for my personal portfolio website. This site will likely get more elaborate as the course progresses.",
+  "description": "Developer portfolio site",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

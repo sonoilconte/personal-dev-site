@@ -1,9 +1,12 @@
-## Personal Portfolio README for Sepp Hammer
+## Developer Portfolio Site
 
-In this repo, I'll be developing the project for my personal portfolio website. This site will likely get more elaborate as the course progresses.
+Mobile-first, single page, super simple UI site for featuring key projects, bio, LinkedIn, Github, etc.
 
-### Technologies used in this personal website
+The intention behind the design of the nav menu is to be phone friendly and enjoy avoiding hamburgers, drop-downs, slide-ins, etc.  
 
-+ html
-+ CSS
-+ maybe a little javascript?
+### Technologies
+
++ HTML/CSS
++ JavaScript
++ Babel
++ A little jQuery
