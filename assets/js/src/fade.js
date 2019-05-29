@@ -12,7 +12,7 @@ navElements.forEach((navElement) => {
     e.target.classList.add('current-btn');
     $('#fade-wrapper').fadeOut(500, () => {
       sectionElements.forEach((el) => { el.classList.remove('display') });
-      sectionElements.find(el => el.id === e.target.dataset.section )
+      sectionElements.find(el => el.id === e.target.dataset.section)
         .classList.add('display');
       if (window.scrollY > mobileOffset) {
         window.scrollTo(0, mobileOffset);
@@ -23,12 +23,14 @@ navElements.forEach((navElement) => {
 });
 
 // Watch for scroll for fixed nav bar
+
+let navIsSticky = false;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > mobileOffset) {
-    document.getElementsByTagName('nav')[0].classList.add('fixed-nav');
-    document.getElementsByClassName('wrapper')[0].classList.add('wrapper-nav-offset');
-  } else {
-    document.getElementsByTagName('nav')[0].classList.remove('fixed-nav');
-    document.getElementsByClassName('wrapper')[0].classList.remove('wrapper-nav-offset');
+  const navShouldBeSticky = window.scrollY > mobileOffset;
+  if (navShouldBeSticky == navIsSticky) {
+    return;
   }
+  document.body.classList.toggle('sticky', navShouldBeSticky);
+  navIsSticky = navShouldBeSticky;
 });

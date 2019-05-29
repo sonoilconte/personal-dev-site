@@ -90,7 +90,21 @@ nav {
   padding: 20px 0;
 }
 
-.fixed-nav {
+/*.fixed-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -50%;
+  z-index: 10;
+  background: #c9dbf2;
+}*/
+
+/*.wrapper-nav-offset {
+  margin: 87px auto 0 auto;
+}*/
+
+.sticky nav {
   position: fixed;
   width: 100%;
   top: 0;
@@ -100,7 +114,7 @@ nav {
   background: #c9dbf2;
 }
 
-.wrapper-nav-offset {
+.sticky .wrapper {
   margin: 87px auto 0 auto;
 }
 
