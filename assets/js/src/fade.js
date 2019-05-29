@@ -1,3 +1,5 @@
+// TODO: Have someone knowledgable review this JS :)
+
 const mobileOffset = 270;
 // Start with nav-work button highlighted and only work section showing
 document.getElementById('nav-work').classList.add('current-btn');
