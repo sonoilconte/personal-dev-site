@@ -5,21 +5,62 @@ body {
 
 header {
   margin: 0 auto;
-	max-width: 600px;
   height: 240px;
-	text-align: center;
   padding: 10px;
 }
 
-header, nav ul li, #wrapper {
+header, nav ul li, .wrapper {
   border-radius: 20px;
 	background: white;
 }
 
-/*header {
-  margin-top: 10px;
-}*/
+header {
+  width: 600px;
+}
 
+.header-img-frame {
+  height: 60px;
+  text-align: center;
+}
+
+.header-img-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+header img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.wrapper {
+  width: 800px;
+  position: relative;
+	margin: 0 auto;
+	text-align: left;
+	padding: 10px;
+  min-height: 800px;
+}
+
+@media all and (max-width: 991px) {
+  header, .wrapper {
+    width: 600px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  header, .wrapper {
+    width: 500px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  header, .wrapper {
+    width: auto;
+  }
+}
 
 h1, h2 {
  	font-family: 'Poppins', sans-serif;
@@ -60,6 +101,7 @@ nav ul {
 .nav-btn {
 	display: inline-block;
 	padding: 10px;
+  margin: 0 3px;
 }
 
 .nav-btn:hover {
@@ -77,20 +119,11 @@ nav ul {
 	background: #73b6f5;
 }
 
-.wrapper {
-  position: relative;
-	margin: 0 auto;
-	text-align: left;
-	padding: 20px;
-	max-width: 600px;
-  min-height: 800px;
-}
-
-#wrapper h2 {
+.wrapper h2 {
 	text-align: center;
 }
 
-#wrapper p {
+.wrapper p {
 	color: black;
 }
 

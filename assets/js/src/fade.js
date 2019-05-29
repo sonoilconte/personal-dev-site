@@ -27,9 +27,9 @@ Array.from(navElements).forEach((navElement) => {
 window.addEventListener('scroll', () => {
   if (window.scrollY > mobileOffset) {
     document.getElementsByTagName('nav')[0].classList.add('fixed-nav');
-    document.getElementById('wrapper').classList.add('wrapper-nav-offset');
+    document.getElementsByClassName('wrapper')[0].classList.add('wrapper-nav-offset');
   } else {
     document.getElementsByTagName('nav')[0].classList.remove('fixed-nav');
-    document.getElementById('wrapper').classList.remove('wrapper-nav-offset');
+    document.getElementsByClassName('wrapper')[0].classList.remove('wrapper-nav-offset');
   }
 });
