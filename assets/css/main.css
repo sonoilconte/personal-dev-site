@@ -100,6 +100,10 @@ nav {
   background: #c9dbf2;
 }
 
+.wrapper-nav-offset {
+  margin: 87px auto 0 auto;
+}
+
 nav ul {
   list-style: none;
   text-align: center;
@@ -135,11 +139,6 @@ nav ul {
 .wrapper p {
 	color: black;
 }
-
-.wrapper-nav-offset {
-  margin: 87px auto 0 auto;
-}
-
 
 a, a::after {
 	color: #162955;

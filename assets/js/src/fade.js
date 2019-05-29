@@ -1,22 +1,19 @@
-// TODO: Have someone knowledgable review this JS :)
-
 const mobileOffset = 270;
+const navElements = Array.from(document.getElementsByClassName('nav-btn'));
+const sectionElements = Array.from(document.getElementsByTagName('section'));
 // Start with nav-work button highlighted and only work section showing
-document.getElementById('nav-work').classList.add('current-btn');
-document.getElementById('work').classList.add('display');
+navElements[0].classList.add('current-btn');
+sectionElements[0].classList.add('display');
 
-const navElements = document.getElementsByClassName('nav-btn');
-
-Array.from(navElements).forEach((navElement) => {
+navElements.forEach((navElement) => {
   navElement.addEventListener('click', (e) => {
     e.preventDefault();
-    Array.from(document.getElementsByTagName('li'))
-      .forEach(el => el.classList.remove('current-btn'));
-    document.getElementById(e.target.id).classList.add('current-btn');
+    navElements.forEach((el) => { el.classList.remove('current-btn') });
+    e.target.classList.add('current-btn');
     $('#fade-wrapper').fadeOut(500, () => {
-      Array.from(document.getElementsByTagName('section'))
-        .forEach(el => el.classList.remove('display'));
-      document.getElementById(e.target.id.slice(4)).classList.add('display');
+      sectionElements.forEach((el) => { el.classList.remove('display') });
+      sectionElements.find(el => el.id === e.target.dataset.section )
+        .classList.add('display');
       if (window.scrollY > mobileOffset) {
         window.scrollTo(0, mobileOffset);
       }

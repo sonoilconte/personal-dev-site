@@ -1,5 +1,6 @@
 "use strict";
 
+// TODO: Have someone knowledgable review this JS :)
 var mobileOffset = 270; // Start with nav-work button highlighted and only work section showing
 
 document.getElementById('nav-work').classList.add('current-btn');
@@ -9,9 +10,10 @@ Array.from(navElements).forEach(function (navElement) {
   navElement.addEventListener('click', function (e) {
     e.preventDefault();
     Array.from(document.getElementsByTagName('li')).forEach(function (el) {
-      return el.classList.remove('current-btn');
+      el.classList.remove('current-btn');
     });
     document.getElementById(e.target.id).classList.add('current-btn');
+    console.log(document.getElementById(e.target.id) === e.target);
     $('#fade-wrapper').fadeOut(500, function () {
       Array.from(document.getElementsByTagName('section')).forEach(function (el) {
         return el.classList.remove('display');
