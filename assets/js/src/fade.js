@@ -8,25 +8,25 @@ navElements[0].classList.add('current-btn');
 sectionElements[0].classList.add('display');
 const fadeElement = document.getElementById('fade-wrapper');
 
-navElements.forEach((navElement) => {
-  navElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    navElements.forEach((el) => { el.classList.remove('current-btn') });
-    e.target.classList.add('current-btn');
-    fadeElement.classList.add('hidden');
-    const fadeDuration = getComputedStyle(fadeElement).transitionDuration;
-    const durationMs = parseFloat(fadeDuration.match(/\d+.\d+/))*1000;
-    window.setTimeout(() => {
-      sectionElements.forEach((el) => { el.classList.remove('display') });
-      sectionElements.find(el => el.id === e.target.dataset.section)
-        .classList.add('display');
-      if (window.scrollY > stickyNavOffset) {
-        window.scrollTo(0, stickyNavOffset);
-      }
-      fadeElement.classList.remove('hidden');
-      fadeElement.classList.add('visible');
-    }, durationMs);
-  });
+window.addEventListener('hashchange', (e) => {
+  e.preventDefault();
+  console.log('hash change to', location.hash);
+  navElements.forEach((el) => { el.classList.remove('current-btn') });
+  navElements.find(el => el.parentElement.getAttribute('href') === location.hash)
+    .classList.add('current-btn');
+  fadeElement.classList.add('hidden');
+  const fadeDuration = getComputedStyle(fadeElement).transitionDuration;
+  const durationMs = parseFloat(fadeDuration.match(/\d+.\d+/))*1000;
+  window.setTimeout(() => {
+    sectionElements.forEach((el) => { el.classList.remove('display') });
+    sectionElements.find(el => el.id === location.hash.substring(1))
+    .classList.add('display');
+    if (window.scrollY > stickyNavOffset) {
+      window.scrollTo(0, stickyNavOffset);
+    }
+    fadeElement.classList.remove('hidden');
+    fadeElement.classList.add('visible');
+  }, durationMs);
 });
 
 // Watch for scroll for fixed nav bar
