@@ -19,6 +19,12 @@ const activeElements = getActiveElements(location.hash);
 activeElements[0].classList.add('current-btn');
 activeElements[1].classList.add('display');
 
+// Make sure a direct link to a #contact etc. does not scroll down
+// Is this too hacky?
+if (location.hash && location.hash != '') {
+  setTimeout(() => { window.scrollTo(0, 0) }, 1);
+}
+
 window.addEventListener('hashchange', (e) => {
   e.preventDefault();
   navElements.forEach((el) => { el.classList.remove('current-btn') });
