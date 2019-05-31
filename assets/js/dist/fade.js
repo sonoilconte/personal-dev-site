@@ -1,40 +1,67 @@
 "use strict";
 
-// TODO: Have someone knowledgable review this JS :)
-var mobileOffset = 270; // Start with nav-work button highlighted and only work section showing
+var headerElement = document.getElementById('header');
+var headerGeometry = headerElement.getBoundingClientRect();
+var stickyNavOffset = headerGeometry.height + window.scrollY + headerGeometry.y;
+var navElements = Array.from(document.getElementsByClassName('nav-btn'));
+var sectionElements = Array.from(document.getElementsByTagName('section'));
+var fadeElement = document.getElementById('fade-wrapper');
 
-document.getElementById('nav-work').classList.add('current-btn');
-document.getElementById('work').classList.add('display');
-var navElements = document.getElementsByClassName('nav-btn');
-Array.from(navElements).forEach(function (navElement) {
-  navElement.addEventListener('click', function (e) {
-    e.preventDefault();
-    Array.from(document.getElementsByTagName('li')).forEach(function (el) {
-      el.classList.remove('current-btn');
+function selectWithLocation(el, locationHash) {
+  return el.dataset.section === locationHash.substring(1);
+}
+
+function getActiveElements(locationHash) {
+  if (locationHash && locationHash !== '') {
+    var navElement = navElements.find(function (el) {
+      return selectWithLocation(el, locationHash);
     });
-    document.getElementById(e.target.id).classList.add('current-btn');
-    console.log(document.getElementById(e.target.id) === e.target);
-    $('#fade-wrapper').fadeOut(500, function () {
-      Array.from(document.getElementsByTagName('section')).forEach(function (el) {
-        return el.classList.remove('display');
-      });
-      document.getElementById(e.target.id.slice(4)).classList.add('display');
-
-      if (window.scrollY > mobileOffset) {
-        window.scrollTo(0, mobileOffset);
-      }
-
-      $('#fade-wrapper').fadeIn(500);
+    var sectionElement = sectionElements.find(function (el) {
+      return selectWithLocation(el, locationHash);
     });
+    return [navElement, sectionElement];
+  }
+
+  return [navElements[0], sectionElements[0]];
+} // Page load could be index.html, or index.html#contact etc.
+
+
+var activeElements = getActiveElements(window.location.hash);
+activeElements[0].classList.add('current-btn');
+activeElements[1].classList.add('display');
+window.addEventListener('hashchange', function (e) {
+  e.preventDefault();
+  navElements.forEach(function (el) {
+    el.classList.remove('current-btn');
   });
+  var elements = getActiveElements(window.location.hash);
+  elements[0].classList.add('current-btn');
+  fadeElement.classList.add('hidden');
+  var fadeDuration = getComputedStyle(fadeElement).transitionDuration;
+  var durationMs = parseFloat(fadeDuration.match(/\d+.\d+/)) * 1000;
+  window.setTimeout(function () {
+    sectionElements.forEach(function (el) {
+      el.classList.remove('display');
+    });
+    elements[1].classList.add('display');
+
+    if (window.scrollY > stickyNavOffset) {
+      window.scrollTo(0, stickyNavOffset);
+    }
+
+    fadeElement.classList.remove('hidden');
+    fadeElement.classList.add('visible');
+  }, durationMs);
 }); // Watch for scroll for fixed nav bar
 
+var navIsSticky = false;
 window.addEventListener('scroll', function () {
-  if (window.scrollY > mobileOffset) {
-    document.getElementsByTagName('nav')[0].classList.add('fixed-nav');
-    document.getElementsByClassName('wrapper')[0].classList.add('wrapper-nav-offset');
-  } else {
-    document.getElementsByTagName('nav')[0].classList.remove('fixed-nav');
-    document.getElementsByClassName('wrapper')[0].classList.remove('wrapper-nav-offset');
+  var navShouldBeSticky = window.scrollY > stickyNavOffset;
+
+  if (navShouldBeSticky === navIsSticky) {
+    return;
   }
+
+  document.body.classList.toggle('sticky', navShouldBeSticky);
+  navIsSticky = navShouldBeSticky;
 });
