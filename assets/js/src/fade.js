@@ -21,10 +21,12 @@ window.addEventListener('hashchange', (e) => {
     el.classList.remove('current-btn');
   });
   getActiveElement(window.location.hash, navElements).classList.add('current-btn');
-  fadeElement.classList.add('hidden');
+  fadeElement.parentNode.classList.add('hidden');
   // Get transitionDuration from CSS and convert seconds string to milliseconds
   const fadeDuration = getComputedStyle(fadeElement).transitionDuration;
-  const durationMs = parseFloat(fadeDuration.match(/\d+.\d+/)) * 1000;
+  console.log('fadeDuration', fadeDuration);
+  const durationMs = parseFloat(fadeDuration.match(/\d+.?\d*(?!.*\d+.?\d*)/)) * 1000;
+  console.log('durationMs', durationMs);
   window.setTimeout(() => {
     sectionElements.forEach((el) => {
       el.classList.remove('display');
@@ -33,8 +35,7 @@ window.addEventListener('hashchange', (e) => {
     if (window.scrollY > stickyNavOffset) {
       window.scrollTo(0, stickyNavOffset);
     }
-    fadeElement.classList.remove('hidden');
-    fadeElement.classList.add('visible');
+    fadeElement.parentNode.classList.remove('hidden');
   }, durationMs);
 });
 
