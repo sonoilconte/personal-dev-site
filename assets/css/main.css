@@ -33,16 +33,13 @@ header, nav ul li {
   * JavaScript in fade.js will get the below transition duration and convert to ms
   * fade.js will wait for this duration before swapping in the appropriate section
   */
-  transition: opacity 2.0s ease-in;
+  transition: opacity 0.5s ease-in;
 }
-
-/*.visible {
-}*/
 
 .hidden > #fade-wrapper {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 2.0s, opacity 2.0s ease-out;
+  transition: visibility 0s 0.5s, opacity 0.5s ease-out;
 }
 
 header {

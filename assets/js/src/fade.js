@@ -4,6 +4,7 @@ const stickyNavOffset = headerGeometry.height + window.scrollY + headerGeometry.
 const navElements = Array.from(document.getElementsByClassName('nav-btn'));
 const sectionElements = Array.from(document.getElementsByTagName('section'));
 const fadeElement = document.getElementById('fade-wrapper');
+let fadeTimeoutId;
 
 function getActiveElement(locationHash, elementsArray) {
   if (locationHash) {
@@ -16,7 +17,10 @@ function getActiveElement(locationHash, elementsArray) {
 getActiveElement(window.location.hash, navElements).classList.add('current-btn');
 getActiveElement(window.location.hash, sectionElements).classList.add('display');
 
-window.addEventListener('hashchange', (e) => {
+window.addEventListener('hashchange', () => {
+  if (fadeTimeoutId) {
+    window.clearTimeout(fadeTimeoutId);
+  }
   navElements.forEach((el) => {
     el.classList.remove('current-btn');
   });
@@ -24,10 +28,8 @@ window.addEventListener('hashchange', (e) => {
   fadeElement.parentNode.classList.add('hidden');
   // Get transitionDuration from CSS and convert seconds string to milliseconds
   const fadeDuration = getComputedStyle(fadeElement).transitionDuration;
-  console.log('fadeDuration', fadeDuration);
   const durationMs = parseFloat(fadeDuration.match(/\d+.?\d*(?!.*\d+.?\d*)/)) * 1000;
-  console.log('durationMs', durationMs);
-  window.setTimeout(() => {
+  fadeTimeoutId = window.setTimeout(() => {
     sectionElements.forEach((el) => {
       el.classList.remove('display');
     });
@@ -36,6 +38,7 @@ window.addEventListener('hashchange', (e) => {
       window.scrollTo(0, stickyNavOffset);
     }
     fadeElement.parentNode.classList.remove('hidden');
+    fadeTimeoutId = undefined;
   }, durationMs);
 });
 
