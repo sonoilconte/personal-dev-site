@@ -6,51 +6,46 @@ var stickyNavOffset = headerGeometry.height + window.scrollY + headerGeometry.y;
 var navElements = Array.from(document.getElementsByClassName('nav-btn'));
 var sectionElements = Array.from(document.getElementsByTagName('section'));
 var fadeElement = document.getElementById('fade-wrapper');
+var fadeTimeoutId;
 
-function selectWithLocation(el, locationHash) {
-  return el.dataset.section === locationHash.substring(1);
-}
-
-function getActiveElements(locationHash) {
-  if (locationHash && locationHash !== '') {
-    var navElement = navElements.find(function (el) {
-      return selectWithLocation(el, locationHash);
+function getActiveElement(locationHash, elementsArray) {
+  if (locationHash) {
+    return elementsArray.find(function (el) {
+      return el.dataset.section === locationHash.substring(1);
     });
-    var sectionElement = sectionElements.find(function (el) {
-      return selectWithLocation(el, locationHash);
-    });
-    return [navElement, sectionElement];
   }
 
-  return [navElements[0], sectionElements[0]];
+  return elementsArray[0];
 } // Page load could be index.html, or index.html#contact etc.
 
 
-var activeElements = getActiveElements(window.location.hash);
-activeElements[0].classList.add('current-btn');
-activeElements[1].classList.add('display');
-window.addEventListener('hashchange', function (e) {
-  e.preventDefault();
+getActiveElement(window.location.hash, navElements).classList.add('current-btn');
+getActiveElement(window.location.hash, sectionElements).classList.add('display');
+window.addEventListener('hashchange', function () {
+  if (fadeTimeoutId) {
+    window.clearTimeout(fadeTimeoutId);
+  }
+
   navElements.forEach(function (el) {
     el.classList.remove('current-btn');
   });
-  var elements = getActiveElements(window.location.hash);
-  elements[0].classList.add('current-btn');
-  fadeElement.classList.add('hidden');
+  getActiveElement(window.location.hash, navElements).classList.add('current-btn');
+  fadeElement.parentNode.classList.add('hidden'); // Get transitionDuration from CSS and convert seconds string to milliseconds
+
   var fadeDuration = getComputedStyle(fadeElement).transitionDuration;
-  var durationMs = parseFloat(fadeDuration.match(/\d+.\d+/)) * 1000;
-  window.setTimeout(function () {
+  var durationMs = parseFloat(fadeDuration.match(/\d+.?\d*(?!.*\d+.?\d*)/)) * 1000;
+  fadeTimeoutId = window.setTimeout(function () {
     sectionElements.forEach(function (el) {
       el.classList.remove('display');
     });
-    elements[1].classList.add('display');
+    getActiveElement(window.location.hash, sectionElements).classList.add('display');
 
     if (window.scrollY > stickyNavOffset) {
       window.scrollTo(0, stickyNavOffset);
     }
 
-    fadeElement.classList.remove('hidden');
-    fadeElement.classList.add('visible');
+    fadeElement.parentNode.classList.remove('hidden');
+    fadeTimeoutId = undefined;
   }, durationMs);
 }); // Watch for scroll for fixed nav bar
 
