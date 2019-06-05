@@ -97,7 +97,14 @@
         </section>
 
         <section data-section="contact" class="fade default-no-display">
-          <p>Contact Form here</p>
+
+          <form id="contact" class="" action="index.html" method="post">
+            <input type="text" name="email" value="" placeholder="Your email address" required>
+            <input type="text" name="subject" value="" placeholder="Subject (optional)">
+            <textarea name="message" form="contact" class="message" placeholder="Message"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+
           <p>Find me on</p>
           <p>
             <a href="https://github.com/sonoilconte"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
