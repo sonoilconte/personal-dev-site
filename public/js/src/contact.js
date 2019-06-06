@@ -11,15 +11,15 @@ form.onsubmit = (e) => {
   });
 
   // const url = 'http://localhost:7071/api/sendEmail';
-  const url = 'https://staticsitefaas.azurewebsites.net/api/sendemail?code=zarpFXawJ8sgsg7CQD86lne3p3Ay1UqTFB0vrGLXT50uamyfwapuPA==';
+  const url = 'https://staticsitefaas.azurewebsites.net/api/sendemail?code=YB8fIvTsC35ONblda9VppzqUNTzJWTkU0RsEgUxcLabiZ9HeBwtNWQ==';
   const options = {
-    headers: { 'Content-type': 'application/json' },
+    url,
+    headers: { 'Content-Type': 'application/json' },
     method: 'POST',
-    body: formData
+    data: formData
   };
 
-  fetch(url, options)
+  axios(options)
   .then(res => console.log(res))
   .catch(err => console.log(err));
-
 }
