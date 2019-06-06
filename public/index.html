@@ -14,9 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <!-- favicon -->
-  <link rel="icon" type="image/png" href="imgs/favicon.png">
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="imgs/hammer.png">
 </head>
 
 <body>
@@ -98,10 +96,14 @@
 
         <section data-section="contact" class="fade default-no-display">
 
-          <form id="contact" class="" action="index.html" method="post">
+          <div id="result-message" class="default-no-display">
+            Thank you for your message. I'll be in touch soon.
+          </div>
+
+          <form id="contact-form" class="" action="index.html" method="post">
             <input type="text" name="email" value="" placeholder="Your email address" required>
             <input type="text" name="subject" value="" placeholder="Subject (optional)">
-            <textarea form="contact" name="message" placeholder="Message" class="message"></textarea>
+            <textarea form="contact-form" name="message" placeholder="Message" class="message"></textarea>
             <button type="submit">Send Message</button>
           </form>
 

@@ -36,7 +36,7 @@ header, nav ul li {
   transition: opacity 0.5s ease-in;
 }
 
-.hidden > #fade-wrapper {
+.hidden > #fade-wrapper, form .hidden {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.5s, opacity 0.5s ease-out;
