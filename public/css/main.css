@@ -202,14 +202,10 @@ a, a::after {
 
 /* Contact Form */
 
-form {
-  padding: 10px;
-}
-
 form > input, textarea, button {
   display: block;
   padding: 5px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 form > input {
@@ -221,4 +217,12 @@ textarea.message {
   width: 400px;
   height: 200px;
   max-width: 80%;
+}
+
+.other-logo {
+  height: 3em;
+}
+
+.alert-text {
+  color: red;
 }
