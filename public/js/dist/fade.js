@@ -38,6 +38,8 @@ window.addEventListener('hashchange', function () {
     sectionElements.forEach(function (el) {
       el.classList.remove('display');
     });
+    readyFormDisplay(); // see contact.js
+
     getActiveElement(window.location.hash, sectionElements).classList.add('display');
 
     if (window.scrollY > stickyNavOffset) {
