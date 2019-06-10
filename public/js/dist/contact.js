@@ -1,14 +1,17 @@
-const form = document.querySelector('form');
-const formElements = Array.from(form);
-const resultMessageDiv = document.getElementById('result-message');
-const emailAlertElement = document.getElementById('email-alert');
+"use strict";
+
+var form = document.querySelector('form');
+var formElements = Array.from(form);
+var resultMessageDiv = document.getElementById('result-message');
+var emailAlertElement = document.getElementById('email-alert');
 
 function onSubmitMessage() {
-  window.setTimeout(() => {
+  window.setTimeout(function () {
     window.scrollTo(0, stickyNavOffset); // see fade.js for stickyNavOffset
+
     form.classList.toggle('default-no-display', true);
     resultMessageDiv.classList.toggle('display', true);
-    formElements.forEach(el => {
+    formElements.forEach(function (el) {
       if (el.value) {
         el.value = "";
       }
@@ -35,10 +38,10 @@ function validateFields(formData) {
   return /(.+)@(.+){2,}\.(.+){2,}/.test(formData.email);
 }
 
-form.onsubmit = (e) => {
+form.onsubmit = function (e) {
   e.preventDefault();
-  const formData = {};
-  formElements.map((el) => {
+  var formData = {};
+  formElements.map(function (el) {
     if (el.name && el.value) {
       return formData[el.name] = el.value;
     }
@@ -47,25 +50,24 @@ form.onsubmit = (e) => {
   if (!validateFields(formData)) {
     emailAlertElement.innerHTML = 'Please enter a valid email';
     return;
-  }
-  // const url = 'http://localhost:7071/api/sendEmail';
-  const url = 'https://staticsitefaas.azurewebsites.net/api/sendemail?code=YB8fIvTsC35ONblda9VppzqUNTzJWTkU0RsEgUxcLabiZ9HeBwtNWQ==';
-  const options = {
-    url,
-    headers: { 'Content-Type': 'application/json' },
+  } // const url = 'http://localhost:7071/api/sendEmail';
+
+
+  var url = 'https://staticsitefaas.azurewebsites.net/api/sendemail?code=YB8fIvTsC35ONblda9VppzqUNTzJWTkU0RsEgUxcLabiZ9HeBwtNWQ==';
+  var options = {
+    url: url,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     method: 'POST',
     data: formData
   };
-
-  axios(options)
-  .then(res => {
+  axios(options).then(function (res) {
     console.log(res);
     onSuccess();
-  })
-  .catch(err => {
+  })["catch"](function (err) {
     console.log(err);
     onFailure();
   });
-
   onSubmitMessage();
-}
+};
