@@ -85,12 +85,6 @@ header img {
   }
 }
 
-
-
-/*h1 {
-  padding: 10px 0 10px 0;
-}*/
-
 h2 {
 	font-weight: 400;
   font-size: 1.2em;
@@ -187,10 +181,6 @@ a, a::after {
     margin: 10px auto 0 auto;
     display: block;
   }
-}
-
-.project {
-
 }
 
 .screenshot {
